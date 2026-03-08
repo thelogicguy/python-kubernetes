@@ -26,5 +26,17 @@ jobs:
       - name: Push to Docker
         run: |
           docker push thelogicguy/complete-devops-project:${{ env.SHORT_SHA }}
-          docker tag thelogicguy/complete-devops-project:${{ env.SHORT_SHA }} thelogicguy/complete-devops-project:latest
-          docker push thelogicguy/complete-devops-project:latest
+      
+      - name: Configure Git Aurthor
+        run: |
+          git config --global user.name "thelogicguy"
+          git config --global user.email "07140254+thelogicguy@users.noreply.github.com"
+
+      - name: Update Helm Chat with new image tag
+        run: |
+          sed -i "s/tag: .*/tag: ${{ env.SHORT_SHA }}/" python-app-project/values.yml
+          git add ./python-app-project/values.yml
+          git commit -m "Update image tag to ${{ env.SHORT_SHA }}"
+          git push
+
+      
