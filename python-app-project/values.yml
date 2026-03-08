@@ -1,6 +1,6 @@
 image:
   repository: thelogicguy/complete-devops-project
-  tag: 61c062b
+  tag: 80e8950
   pullPolicy: IfNotPresent
   service:
     type: ClusterIP
