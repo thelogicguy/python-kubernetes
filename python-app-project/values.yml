@@ -2,9 +2,9 @@ image:
   repository: thelogicguy/complete-devops-project
   tag: a83fc38
   pullPolicy: IfNotPresent
-  service:
-    type: ClusterIP
-    port: 8080
+service:
+  type: ClusterIP
+  port: 8080
 ingress:
   enabled: false
 serviceAccount:
