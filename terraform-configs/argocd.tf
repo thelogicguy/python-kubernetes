@@ -5,6 +5,10 @@ resource "helm_release" "argo_cd" {
     repository = "https://argoproj.github.io/argo-helm"
     create_namespace = true
 
+    depends_on = [
+    minikube_cluster.minikube_docker
+    ]
+    
     values = [
         <<-EOF
         server:
