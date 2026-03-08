@@ -6,7 +6,7 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  kubernetes {                                                                    
+  kubernetes = {                                                                    
     host                   = minikube_cluster.minikube_docker.host
     client_certificate     = base64decode(minikube_cluster.minikube_docker.client_certificate)
     client_key             = base64decode(minikube_cluster.minikube_docker.client_key)
