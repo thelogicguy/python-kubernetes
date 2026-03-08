@@ -12,7 +12,7 @@ provider "minikube" {
 }
 
 resource "minikube_cluster" "minikube_docker" {
-  cluster_name               = "complete-devops-project"
+  cluster_name       = "complete-devops-project"
   driver             = "docker"
   addons = [
     "defaultstorageclass", # Enable the default storage class addon to allow dynamic provisioning of Persistent Volumes
